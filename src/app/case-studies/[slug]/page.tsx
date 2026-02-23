@@ -69,6 +69,7 @@ export default function CaseStudySinglePage() {
       <main className="pt-20">
         {/* Hero Section */}
         <section className="relative h-[60vh] flex items-center overflow-hidden">
+          <div className="absolute inset-0 bg-black/30 z-10"></div>
           <Image 
             src={study.image} 
             alt={study.title}

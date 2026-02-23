@@ -39,8 +39,9 @@ export default function ContactPage() {
       <Header />
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-24 md:py-32 bg-white text-center">
-          <div className="section-container">
+        <section className="py-24 md:py-32 bg-white text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80')] bg-cover bg-center opacity-10"></div>
+          <div className="section-container relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
