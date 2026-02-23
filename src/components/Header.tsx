@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import { useUIStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 const navLinks = [
@@ -19,14 +20,27 @@ const navLinks = [
 export default function Header() {
   const { isMobileMenuOpen, isHeaderSolid, setHeaderSolid, toggleMobileMenu, setMobileMenuOpen } =
     useUIStore();
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
+    // Set header to always be solid (dark) on non-homepage paths
+    if (!isHomePage) {
+      setHeaderSolid(true);
+      return;
+    }
+    
+    // Only apply scroll-based header transparency on homepage
     const handleScroll = () => {
       setHeaderSolid(window.scrollY > 80);
     };
+    
+    // Set initial header state based on current scroll position
+    handleScroll();
+    
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [setHeaderSolid]);
+  }, [setHeaderSolid, isHomePage]);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
