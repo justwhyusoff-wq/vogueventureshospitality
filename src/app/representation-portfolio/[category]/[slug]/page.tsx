@@ -91,6 +91,7 @@ export default function PartnerSinglePage() {
             src={partner.image} 
             alt={partner.name}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />

@@ -74,6 +74,7 @@ export default function CaseStudySinglePage() {
             src={study.image} 
             alt={study.title}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
