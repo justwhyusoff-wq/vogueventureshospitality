@@ -1,0 +1,211 @@
+/* Enhanced Visual Hierarchy Styles */
+
+/* Section Spacing */
+.py-section {
+  padding-top: 7.5rem !important; /* 120px desktop spacing */
+  padding-bottom: 7.5rem !important;
+}
+
+.py-section-sm {
+  padding-top: 5rem !important; /* 80px tablet spacing */
+  padding-bottom: 5rem !important;
+}
+
+@media (max-width: 768px) {
+  .py-section {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+  
+  .py-section-sm {
+    padding-top: 3.75rem !important; /* 60px mobile spacing */
+    padding-bottom: 3.75rem !important;
+  }
+}
+
+/* Section Container with increased width */
+.section-container {
+  width: 90%;
+  max-width: 1400px; /* Slightly wider container */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Typography Refinements */
+h1.font-display {
+  letter-spacing: -0.02em;
+  font-weight: 300; /* Lighter weight for more luxury feel */
+  margin-bottom: 2.5rem !important; /* More space after headings */
+  font-size: clamp(3.25rem, 6.5vw, 6.5rem) !important; /* Slightly larger H1 */
+}
+
+h2.font-display {
+  letter-spacing: -0.01em;
+  font-weight: 300; /* Lighter weight for more luxury feel */
+  margin-bottom: 2rem !important; /* More space after headings */
+  color: #0D0D0D; /* Rich black for light mode */
+}
+
+p.font-body {
+  line-height: 1.8; /* Improved line height for readability */
+  font-weight: 300; /* Lighter text for refinement */
+  color: #333333; /* Body text color */
+  margin-bottom: 1.5rem; /* Add breathing space after paragraphs */
+}
+
+/* Card Refinements - less boxy */
+.glass-card {
+  background: rgba(255, 255, 255, 0.9); /* Light card for light mode */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.03); /* Subtler border */
+  border-radius: 6px; /* Slightly softer radius */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important; /* Lighter shadow */
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.08) !important; /* Subtle gold glow */
+}
+
+.glass-card-dark {
+  background: rgba(26, 26, 26, 0.9); /* Dark card for hero and CTA */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Subtler border */
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* Gold Accent Refinements */
+.text-gradient-gold {
+  background: linear-gradient(to right, #d4af37, #e5c76b, #d4af37);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline;
+}
+
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(212, 175, 55, 0),
+    rgba(212, 175, 55, 0.3) 50%,
+    rgba(212, 175, 55, 0)
+  );
+}
+
+.gold-divider-left {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(212, 175, 55, 0.3),
+    rgba(212, 175, 55, 0.1) 50%,
+    rgba(212, 175, 55, 0)
+  );
+}
+
+/* Hover gold underline animation */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #D4AF37;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Increased negative space in components */
+.component-spacing > * + * {
+  margin-top: 3.5rem;
+}
+
+/* Refined section backgrounds - alternating */
+.bg-cream {
+  background-color: #F8F7F4; /* Soft luxury cream */
+}
+
+.bg-white {
+  background-color: #FFFFFF; /* Pure white */
+}
+
+.bg-charcoal {
+  background-color: #1A1A1A; /* Only for emphasis blocks */
+}
+
+.bg-charcoal-deep {
+  background-color: #0D0D0D; /* For hero and CTA */
+}
+
+/* Brand auto-scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.brand-scroll {
+  animation: scroll 25s linear infinite;
+}
+
+.brand-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Mobile reduced speed */
+@media (max-width: 768px) {
+  .brand-scroll {
+    animation-duration: 35s;
+  }
+}
+
+/* Horizontal scroll container */
+.horizontal-scroll-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.horizontal-scroll-content {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Image zoom on hover */
+.hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.hover-zoom:hover img {
+  transform: scale(1.03);
+}
+
+/* Fade up animation for sections */
+.fade-up-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-up-section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
